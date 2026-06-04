@@ -15,40 +15,42 @@
     "tabs": [
       {
         "tab": "Docs",
-        "href": "docs/introduction"
+        "groups": [
+          {
+            "group": "Get Started",
+            "pages": [
+              "docs/introduction",
+              "docs/quickstart",
+              "docs/features"
+            ]
+          },
+          {
+            "group": "Guides",
+            "pages": [
+              "docs/input",
+              "docs/assets"
+            ]
+          },
+          {
+            "group": "Support",
+            "pages": [
+              "docs/faqs",
+              "docs/best-practices",
+              "docs/troubleshooting",
+              "docs/get-help"
+            ]
+          }
+        ]
       },
       {
-        "tab": "API Reference",
+        "tab": "API",
         "openapi": "api-reference/openapi.yaml"
       }
-    ],
-    "pages": [
-      {
-        "group": "Getting Started",
-        "pages": [
-          "docs/introduction",
-          "docs/quickstart"
-        ]
-      }
-    ],
-    "global": {
-      "anchors": [
-        {
-          "anchor": "Documentation",
-          "href": "/docs/introduction",
-          "icon": "book-open-cover"
-        },
-        {
-          "anchor": "Blog",
-          "href": "https://blog.urun.sh/",
-          "icon": "newspaper"
-        }
-      ]
-    }
+    ]
   },
   "api" : {
     "openapi": {
-      "source": "openapi.yaml",
+      "source": "api-reference/openapi.yaml",
       "directory": "api-reference"
     },
     "examples": {
