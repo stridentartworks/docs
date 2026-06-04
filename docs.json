@@ -7,7 +7,7 @@
     "light": "#966EFB",
     "dark": "#190936"
   },
-  "favicon": "/favicon.svg",
+  "favicon": "favicon.png",
   "appearance": {
     "default": "dark"
   },
@@ -25,19 +25,48 @@
             ]
           },
           {
-            "group": "Guides",
+            "group": "Concepts",
             "pages": [
-              "docs/input",
-              "docs/assets"
+              "docs/best-practices"
             ]
           },
           {
             "group": "Support",
             "pages": [
               "docs/faqs",
-              "docs/best-practices",
               "docs/troubleshooting",
               "docs/get-help"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Guides",
+        "groups": [
+          {
+            "group": "Guides",
+            "pages": [
+              "guides/assets",
+              "guides/input"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Examples",
+        "groups": [
+          {
+            "group": "Python",
+            "pages": [
+              "examples/py-input",
+              "examples/py-caching"
+            ]
+          },
+          {
+            "group": "Node.js",
+            "pages": [
+              "examples/node-input",
+              "examples/node-caching"
             ]
           }
         ]
@@ -58,8 +87,8 @@
     }
   },
   "logo": {
-    "light": "/logo/urunml_logo.jpeg",
-    "dark": "/logo/urunml_logo.jpeg"
+    "light": "https://framerusercontent.com/images/s7sMGasuAFqEYgWMYuyfRFhpuo.png",
+    "dark": "https://framerusercontent.com/images/O9b17fH7sClTUpTjogNeS9o2QU.png"
   },
   "navbar": {
     "links": [
@@ -110,7 +139,10 @@
     "socials": {
       "discord": "https://discord.com/invite/QN5crJRE7C",
       "linkedin": "https://linkedin.com/company/urunml",
-      "bluesky": "https://bsky.app/profile/urunml.bsky.social"
+      "bluesky": "https://bsky.app/profile/urunml.bsky.social",
+      "reddit": "https://www.reddit.com/r/urunml/",
+      "youtube": "https://www.youtube.com/@urunml",
+      "instagram": "https://www.instagram.com/urunml"
     }
   }
 }
