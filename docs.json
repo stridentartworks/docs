@@ -1,20 +1,33 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "mint",
-  "name": "Mintlify Starter Kit",
+  "theme": "luma",
+  "name": "Developer Platform",
   "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+    "primary": "#966EFB",
+    "light": "#966EFB",
+    "dark": "#190936"
   },
   "favicon": "/favicon.svg",
+  "appearance": {
+    "default": "dark"
+  },
   "navigation": {
+    "tabs": [
+      {
+        "tab": "Docs",
+        "href": "docs/introduction"
+      },
+      {
+        "tab": "API Reference",
+        "openapi": "api-reference/openapi.yaml"
+      }
+    ],
     "pages": [
       {
         "group": "Getting Started",
         "pages": [
-          "index",
-          "quickstart"
+          "docs/introduction",
+          "docs/quickstart"
         ]
       }
     ],
@@ -22,23 +35,36 @@
       "anchors": [
         {
           "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
+          "href": "/docs/introduction",
           "icon": "book-open-cover"
         },
         {
           "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
+          "href": "https://blog.urun.sh/",
           "icon": "newspaper"
         }
       ]
     }
   },
+  "api" : {
+    "openapi": {
+      "source": "openapi.yaml",
+      "directory": "api-reference"
+    },
+    "examples": {
+      "languages": ["bash", "python", "javascript"]
+    }
+  },
   "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
+    "light": "/logo/urunml_logo.jpeg",
+    "dark": "/logo/urunml_logo.jpeg"
   },
   "navbar": {
     "links": [
+      {
+        "label": "Blog",
+        "href": "https://blog.urun.sh/"
+      },
       {
         "label": "Support",
         "href": "mailto:hi@mintlify.com"
@@ -62,11 +88,27 @@
       "vscode"
     ]
   },
+  "background": {
+    "decoration": "gradient"
+  },
+  "icons": {
+    "library": "fontawesome"
+  },
+  "fonts": {
+    "family": "Railway"
+  },
+  "errors": {
+    "404": {
+      "title": "Page Not Found",
+      "description": "Please check the URL or return to the [homepage](/).",
+      "redirect": false
+    }
+  },
   "footer": {
     "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
+      "discord": "https://discord.com/invite/QN5crJRE7C",
+      "linkedin": "https://linkedin.com/company/urunml",
+      "bluesky": "https://bsky.app/profile/urunml.bsky.social"
     }
   }
 }
