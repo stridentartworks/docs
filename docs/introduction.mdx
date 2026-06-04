@@ -1,47 +1,37 @@
 ---
-title: "Pets Galore"
-description: "Developer guides and API reference"
+title: "Welcome"
+sidebarTitle: "Introduction"
+description: "Get started with Pets Galore"
 ---
 
-Describe how someone begins using your product. What is the first thing they need to do? Are there any prerequisites?
+Power your product with real-time. Enable continuous creation. Build, connect, and execute with your universal runtime.
 
-A quickstart should take someone from zero to using your product. They'll get a quick win and a sense of what they can accomplish.
+## What is Pets Galore?
 
-## Prerequisites
+Pets Galore is an inference cloud platform that provides the infrastructure for streaming AI video as it's generated.
+Built for products that run video continuously, from interactive scenes to live worlds.
 
-Before you begin, you must have:
+### Interactive, continuous streaming
+Create a session, stream output, and control it live.
 
-- Requirement one (for example, Node.js 18+, a free account, an API key)
-- Requirement two (for example, a compatible device, a compatible browser, a compatible operating system)
+```typescript
+import { createApp, createStore, videoStream } from '@urun/core';
+const store = createStore({ endpoint: 'wss://your-app.urun.sh' });
+const app = createApp({ store });
+// Create the session
+const session = await app.call('generate_video', {
+  prompt: 'A live lofi room with a character reacting to music',
+});
+// Wire video stream into a <video> element
+const video = session.stream('video');
+document.querySelector('video').srcObject = videoStream(video);
+// Send controls back
+session.emit('control', { action: 'pause' });
+```
 
 ## Get started
 
-<Steps>
-  <Step title="Install">
-    Describe how to install your product or sign up.
+<Card title="Quickstart" icon="rocket" href="/docs/quickstart">
+  Generate your first video in minutes.
+</Card>
 
-    ```bash
-    npm install your-package
-    ```
-  </Step>
-  <Step title="Configure">
-    Describe any setup or configuration needed before first use.
-
-    ```bash
-    your-cli init
-    ```
-  </Step>
-  <Step title="Run it">
-    Show the first thing a user does to see it working.
-
-    ```bash
-    your-cli start
-    ```
-  </Step>
-</Steps>
-
-<Tip>
-  Give people a way to get help. This could be a link to a support page, a chat with a customer support agent, or a forum for your product.
-
-  Example: Need help? Reach out to us at [support@yourcompany.com](mailto:support@yourcompany.com).
-</Tip>
