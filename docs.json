@@ -44,7 +44,28 @@
         "tab": "Guides",
         "groups": [
           {
-            "group": "Guides",
+            "group": "Conversations",
+            "pages": [
+              "guides/assets",
+              "guides/input"
+            ]
+          },
+          {
+            "group": "Scenes",
+            "pages": [
+              "guides/assets",
+              "guides/input"
+            ]
+          },
+          {
+            "group": "Worlds",
+            "pages": [
+              "guides/assets",
+              "guides/input"
+            ]
+          },
+          {
+            "group": "Agents",
             "pages": [
               "guides/assets",
               "guides/input"
