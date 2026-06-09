@@ -94,17 +94,40 @@
       },
       {
         "tab": "API",
-        "openapi": "api-reference/openapi.yaml"
+        "groups": [
+          {
+            "group": "v1.1.0",
+            "pages": [ 
+              "api-reference/overview"
+            ],
+            "openapi": {
+              "source": "api-reference/v1.1.0/openapi.yaml"
+            }
+          },
+          {  
+            "group": "Earlier versions",
+            "pages": [ 
+              {  
+                "group": "v1.0.0",
+                "expanded": false,
+                "openapi": {  
+                  "source": "api-reference/v1.0.0/openapi.yaml",
+                  "directory": "api-reference/v1.0.0"
+                }  
+              }  
+            ]  
+          }  
+        ]
       }
     ]
   },
   "api" : {
     "openapi": {
-      "source": "api-reference/openapi.yaml",
+      "source": "api-reference/v1.1.0/openapi.yaml",
       "directory": "api-reference"
     },
     "examples": {
-      "languages": ["bash", "python", "javascript"]
+      "languages": ["bash", "python", "javascript", "dotnet", "java", "go"]
     }
   },
   "logo": {
