@@ -1,176 +1,38 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "luma",
-  "name": "Developer Platform",
+  "theme": "mint",
+  "name": "Home",
   "colors": {
-    "primary": "#966EFB",
-    "light": "#966EFB",
-    "dark": "#190936"
+    "primary": "#0E0E0E",
+    "light": "#D4A27F",
+    "dark": "#0E0E0E"
   },
   "favicon": "favicon.png",
   "appearance": {
     "default": "dark"
   },
   "navigation": {
-    "tabs": [
-      {
-        "tab": "Docs",
-        "groups": [
-          {
-            "group": "Get Started",
-            "pages": [
-              "docs/introduction",
-              "docs/quickstart",
-              "docs/features"
-            ]
-          },
-          {
-            "group": "Concepts",
-            "pages": [
-              "docs/best-practices"
-            ]
-          },
-          {
-            "group": "Support",
-            "pages": [
-              "docs/faqs",
-              "docs/troubleshooting",
-              "docs/get-help"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "Guides",
-        "groups": [
-          {
-            "group": "Conversations",
-            "pages": [
-              "guides/assets",
-              "guides/input"
-            ]
-          },
-          {
-            "group": "Scenes",
-            "pages": [
-              "guides/assets",
-              "guides/input"
-            ]
-          },
-          {
-            "group": "Worlds",
-            "pages": [
-              "guides/assets",
-              "guides/input"
-            ]
-          },
-          {
-            "group": "Agents",
-            "pages": [
-              "guides/assets",
-              "guides/input"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "Examples",
-        "groups": [
-          {
-            "group": "Python",
-            "pages": [
-              "examples/py-input",
-              "examples/py-caching"
-            ]
-          },
-          {
-            "group": "Node.js",
-            "pages": [
-              "examples/node-input",
-              "examples/node-caching"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "API",
-        "groups": [
-          {
-            "group": "v1.1.0",
-            "pages": [ 
-              "api-reference/overview"
-            ],
-            "openapi": {
-              "source": "api-reference/v1.1.0/openapi.yaml"
-            }
-          },
-          {  
-            "group": "Earlier versions",
-            "pages": [ 
-              {  
-                "group": "v1.0.0",
-                "expanded": false,
-                "openapi": {  
-                  "source": "api-reference/v1.0.0/openapi.yaml",
-                  "directory": "api-reference/v1.0.0"
-                }  
-              }  
-            ]  
-          }  
-        ]
-      }
+    "pages": [
+      "index"
     ]
-  },
-  "api" : {
-    "openapi": {
-      "source": "api-reference/v1.1.0/openapi.yaml",
-      "directory": "api-reference"
-    },
-    "examples": {
-      "languages": ["bash", "python", "javascript", "dotnet", "java", "go"]
-    }
-  },
-  "logo": {
-    "light": "https://framerusercontent.com/images/s7sMGasuAFqEYgWMYuyfRFhpuo.png",
-    "dark": "https://framerusercontent.com/images/O9b17fH7sClTUpTjogNeS9o2QU.png"
-  },
-  "navbar": {
-    "links": [
-      {
-        "label": "Blog",
-        "href": "https://blog.urun.sh/"
-      },
-      {
-        "label": "Support",
-        "href": "mailto:hi@mintlify.com"
-      }
-    ],
-    "primary": {
-      "type": "button",
-      "label": "Dashboard",
-      "href": "https://app.mintlify.com"
-    }
   },
   "contextual": {
     "options": [
       "copy",
       "view",
-      "chatgpt",
-      "claude",
-      "perplexity",
-      "mcp",
-      "cursor",
-      "vscode"
+      "claude"
     ]
-  },
-  "background": {
-    "decoration": "gradient"
   },
   "icons": {
     "library": "fontawesome"
   },
   "fonts": {
-    "family": "Railway"
+    "heading": {
+      "family": "Radley"
+    },
+    "body": {
+      "family": "Anthropic Sans"
+    }
   },
   "errors": {
     "404": {
@@ -181,12 +43,8 @@
   },
   "footer": {
     "socials": {
-      "discord": "https://discord.com/invite/QN5crJRE7C",
-      "linkedin": "https://linkedin.com/company/urunml",
-      "bluesky": "https://bsky.app/profile/urunml.bsky.social",
-      "reddit": "https://www.reddit.com/r/urunml/",
-      "youtube": "https://www.youtube.com/@urunml",
-      "instagram": "https://www.instagram.com/urunml"
+      "x": "https://x.com/AnthropicAI",
+      "linkedin": "https://www.linkedin.com/company/anthropicresearch"
     }
   }
 }

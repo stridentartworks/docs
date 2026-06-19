@@ -4,6 +4,36 @@ sidebarTitle: "Caching"
 description: "Code examples for caching operations"
 ---
 
+# Advanced Type Definitions
+
+<Callout type="info">
+  Always strictly type your SDK payload options.
+</Callout>
+
+{/* validate: mypy-only */}
+```python mypy-only
+from typing import List, Dict, Union
+
+def process_batch(items: List[Dict[str, Union[str, int]]]) -> int:
+    # Mypy will catch if we try to return a string here
+    return len(items)
+
+# Correct usage for static analysis
+process_batch([{"id": 1, "name": "test"}])
+```
+
+### Broken Execution Snippet
+This code will throw a `ZeroDivisionError` when run.
+
+{/* validate: execute */}
+```python
+def calculate_ratio(a: int, b: int) -> float:
+    return a / b
+
+# This will crash the script execution step
+calculate_ratio(10, 0)
+```
+
 ## Generate stream
 <Accordion title="I am an Accordion.">
   You can put any content in here, including other components, like code:
