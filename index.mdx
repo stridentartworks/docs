@@ -1,22 +1,189 @@
 ---
-title: "Pets Galore"
-sidebarTitle: "Introduction"
-description: "Inference cloud for real-time AI video production"
-mode: "wide"
+title: Take home assessment
 ---
 
-AI system for entering, shaping, and interacting within realities. Responsive, continuous, and at scale.
+## Part A
 
-<video autoPlay muted="muted" loop playsInline preload="auto" width="640" height="360" 
-className="w-full aspect-video rounded-xl" src="http://framerusercontent.com/assets/KljP3e0GM3usNMM4Tjsgs10vUQ.mp4">
-</video>
+### 1. A proposed navigation tree for the Agent SDK docs set
 
-<Card title="Quickstart" icon="rocket" href="/docs/quickstart">
-  Generate your first video in minutes
-</Card>
-<Card title="Demo" icon="window" href="https://urun.sh/book-demo">
-  See demo use cases in action
-</Card>
-<Card title="Examples" icon="code" href="/examples">
-  Code examples for popular languages and platforms
-</Card>
+   I worked with DeekWiki, Gemini, and the Claude Code Docs assistant to review and consider restructuring the current TOC
+   but ultimately ended up with something quite similar to the existing structure. New/revised topics will help answer FAQs 
+   and improve navigation and discovery.
+
+   ```
+    Agent SDK
+    ├── Overview — Get started section, compressed capabilities grid, next steps.
+    ├── Build with the SDK [New] — When to use the SDK vs CLI vs raw API and extended use cases; add learning path milestone matrix for beginner guidance.
+    └── Quickstart — Streamline info.
+
+    Core concepts
+    ├── How the agent loop works — Overview with focus on where devs inject logic and hooks; pared down from current.
+    ├── Select your client [New] — query() vs ClaudeSDKClient feature support table; when to use each.
+    ├── Work with sessions — Track, continue, resume, and fork sessions; extract session IDs. Add FAQ examples.
+    └── Error handling basics [New] — SDK error types, try/except patterns, in-stream errors.
+
+    Input and output
+    ├── Read message streams [New] — Iterate over content blocks and message types.
+    ├── Stream responses in real-time — Stream partial responses to the UI.
+    ├── Get structured output — Enforce JSON schemas on agent responses.
+    ├── Stream input to Claude [New] — Feed async iterables mid-run.
+    └── Handle approvals and user input — Respond to tool approval prompts and user input mid-run.
+
+    Give Claude tools
+    ├── Use built-in tools [New] — Tools and usage table; configure the default Claude Code toolset; allow and disallow tools.
+    ├── Create custom tools — Define tools with @tool, input schemas, and create_sdk_mcp_server().
+    ├── Connect to external tools with MCP — Attach external MCP servers to the agent.
+    ├── Scale to many tools with tool search — Use tool search for large tool sets.
+    └── Use subagents — Define, spawn, and coordinate subagents; handle nested user input.
+
+    Customize behavior
+    ├── Modify system prompts — Override or append to the default system prompt.
+    ├── Agent skills — Package tools and instructions as reusable skills.
+    ├── Slash commands — Define filesystem-based commands.
+    └── Plugins — Extend Claude with modular plugins.
+
+    Control and observability
+    ├── Configure permissions — Permission modes, allow/deny rules, and evaluation order.
+    ├── Intercept and control agent behavior with hooks — Pre/post tool call hooks; block or modify tool calls.
+    ├── Rewind file changes with checkpointing — Enable file checkpointing and restore prior state.
+    ├── Track cost and usage — Read token and cost metrics from ResultMessage.
+    ├── Observability with OpenTelemetry — Propagate trace context and export spans.
+    └── Todo lists — Monitor and interact with Claude's task list during a run.
+
+    Going to production
+    ├── Hosting the Agent SDK — Deployment models and infrastructure considerations.
+    ├── Securely deploy AI agents — Sandbox settings, permission hardening, secrets management.
+    ├── Isolate settings with setting_sources [New] — Prevent local filesystem settings from affecting production behavior.
+    ├── Persist transcripts with SessionStore — Mirror session transcripts to external storage via the SessionStore protocol.
+    ├── Operational resiliency [New] — Retry logic, rate limit handling, error_max_turns recovery.
+    └── Troubleshooting [New] — Common error tracebacks by symptom, environment issues, known limitations. (TBD final location)
+
+    Reference
+    ├── Typescript SDK — Deployment models and infrastructure considerations.
+    |   ├── Misc reference topics
+    │   └── Changelog - Links to changelog in SDK repo
+    ├── Typescript SDK — Deployment models and infrastructure considerations.
+    |   ├── Misc reference topics
+    │   └── Changelog - Links to changelog in SDK repo
+    └── Migration
+        ├── Migrate to the Agent SDK
+        └── Typescript V2 (Removed)
+   ```
+
+### 2. Diagnosis: what you consider to be the top 3 problems with the docs now
+
+   1. Can be challenging to find guidance that maps to use cases or architectural decisions (e.g. query vs ClaudeSDKClient). 
+   When present, it's sometimes fragmented across topics or not clearly presented as actionable info.
+   2. Need to update non-working code examples (as stated in the job description).
+   3. Text-dense topics should be reorganized/reformatted for improved agent consumption, discoverability, and scannability.
+
+### 3. For your #1 problem: what would you ship in week one to address this, and why that first?
+  
+   Publish the "Build with the SDK" and "Select your client" topics to address related FAQs and add a beginners' learning path.
+
+### 4. One cookbook outline
+   Subagents are a powerful tool but an example showing how to route mid-run human input through nested subagents doesn't appear to exist (and aligns with a user FAQ). 
+
+   **Title** - Subagents with mid-run human-in-the-loop  
+   **Target reader** - AI Engineers building complex, multi-layered agent teams where sub-tasks require explicit user verification or clarification.  
+   **Section headings**:
+     - Architecture overview: The bubble-up pattern for nested agent approvals
+     - Step 1: Spawning subagents and defining sub-task boundaries
+     - Step 2: Intercepting the AskUserQuestion and approval events inside a subagent
+     - Step 3: Bubbling up the subagent request to the main orchestrator client stream
+     - Step 4: Halting subagent execution safely while awaiting the human payload
+     - Step 5: Injecting the user's response directly back into the subagent context window
+     - Step 6: Handing control back to the orchestrator upon subagent completion
+     - Step 7: Handling timeouts: Stalling, abandoned requests, and user cancellation mid-run
+     - Step 8: Error propagation: Gracefully crashing a subagent without dropping the orchestrator
+
+
+## Part B
+
+Add a "Release notes pipeline" example to the "Get structured output from agents" topic.
+
+### Example: Release notes pipeline  
+  
+Release notes are a good fit for structured outputs. The agent reads git history using Bash, categorizes commits by type, 
+and returns data your CI pipeline can act on directly. Common workflows include updating a changelog, posting to Slack, or 
+gating a deployment on breaking changes.  
+  
+The schema uses an `enum` constraint on `version_bump` to enforce reliable semantic versioning categories, and separate arrays 
+for each change type so downstream code can handle them independently. The example also demonstrates exiting after the `async for` 
+loop to avoid async generator cleanup issues when making decisions based on structured output results.
+  
+<CodeGroup>  
+  ```typescript TypeScript theme={null}  
+  // TBD - didn't get to it in time but asked the docs assistant to generate it based on the Python example
+  ```
+
+  ```python Python theme={null}
+  import asyncio  
+  import sys  
+  from claude_agent_sdk import query, ClaudeAgentOptions, ResultMessage  
+    
+  release_schema = {  
+      "type": "object",  
+      "properties": {  
+          "version_bump": {"type": "string", "enum": ["major", "minor", "patch"]},  
+          "summary": {"type": "string"},  
+          "breaking_changes": {"type": "array", "items": {"type": "string"}},  
+          "new_features": {"type": "array", "items": {"type": "string"}},  
+          "bug_fixes": {"type": "array", "items": {"type": "string"}},  
+      },  
+      "required": ["version_bump", "summary"],  
+  }  
+    
+    
+  async def main():  
+      has_breaking_changes = False  
+        
+      async for message in query(  
+          prompt="Analyze the last 10 git commits and generate release notes. Categorize each commit as a breaking change, new feature, or bug fix. Recommend a version bump following semantic versioning.",  
+          options=ClaudeAgentOptions(  
+              output_format={"type": "json_schema", "schema": release_schema}  
+          ),  
+      ):  
+          if isinstance(message, ResultMessage) and message.structured_output:  
+              notes = message.structured_output  
+                
+              print(f"Recommended bump: {notes['version_bump']}")  
+              print(f"\n{notes['summary']}")  
+                
+              if notes.get("breaking_changes"):  
+                  print("\nBreaking changes:")  
+                  for change in notes["breaking_changes"]:  
+                      print(f"  - {change}")  
+                  has_breaking_changes = True  
+                
+              if notes.get("new_features"):  
+                  print("\nNew features:")  
+                  for feature in notes["new_features"]:  
+                      print(f"  - {feature}")  
+                
+              if notes.get("bug_fixes"):  
+                  print("\nBug fixes:")  
+                  for fix in notes["bug_fixes"]:  
+                      print(f"  - {fix}")  
+         
+      if has_breaking_changes:  
+          sys.exit(1)  
+    
+    
+  asyncio.run(main())
+  ```
+
+</CodeGroup>
+
+
+
+
+## Testing notes
+
+Just some details about my bumpy experience with the quickstart from someone new to the Claude ecosystem: 
+I think I followed the steps correctly using the Python pip route, but storing my API key in the .env file in my project didn't seem to work. 
+I asked Copilot about it and was told first that I needed to install the CLI first. I remembered seeing somewhere that this shouldn't be required so I didn't install it.
+
+Then Copilot told me to run `claude auth login` (the terminal hint said `Not logged in · Please run /login`). Then Copilot suggested running 
+`source .env` before running the script. None of that worked as expected and the browser auth flow didn't seem right, so I just tried exporting 
+my `ANTHROPIC_API_KEY` for the session, which worked.

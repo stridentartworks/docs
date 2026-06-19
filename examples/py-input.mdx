@@ -4,6 +4,37 @@ sidebarTitle: "Input"
 description: "Code examples for input operations"
 ---
 
+This snippet should execute cleanly because it uses valid Python syntax and standard libraries.
+
+{/* validate: execute */}
+```python
+import math
+
+values = [1, 2, 3, 4, 5]
+squared = [math.pow(x, 2) for x in values]
+print(f"Squared values: {squared}")
+```
+
+Here is a pseudo-code example that would fail if executed, but it has the `skip` flag so the script should ignore it entirely.
+
+{/* validate: skip */}
+```python
+# This is invalid Python used purely for demonstration
+for package inside ecosystem:
+    import_magically(package)
+```
+
+### Broken Type Snippet
+This code is syntactically valid but will fail the strict `mypy` type check.
+
+{/* validate: mypy-only */}
+```python
+def get_username(user_id: int) -> str:
+    return user_id # Error: Returning an int instead of a str
+
+get_username(123)
+```
+
 ## Generate stream
 <Accordion title="I am an Accordion.">
   You can put any content in here, including other components, like code:

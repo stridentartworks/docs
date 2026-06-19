@@ -4,6 +4,26 @@ sidebarTitle: "Caching"
 description: "Code examples for caching operations"
 ---
 
+
+This page contains test snippets for our new cross-language automation script.
+
+### Executable TS Code
+{/* validate: execute */}
+```typescript
+const greetings: string[] = ["Hello", "Bonjour", "Hola"];
+greetings.forEach((msg) => console.log(`${msg} from TypeScript!`));
+```
+
+### Type-Check Only TS Code
+This is valid TypeScript syntax, but notice the deliberate type error at the bottom that our script should catch.
+
+{/* validate: tsc-only */}
+```typescript
+function getAge(name: string): number {
+    return "twenty-five"; // Error: Returning a string instead of a number!
+}
+```
+
 ## Generate stream
 <Accordion title="I am an Accordion.">
   You can put any content in here, including other components, like code:
