@@ -1,7 +1,7 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Diane Diaz",
+  "name": "Demo",
   "colors": {
     "primary": "#0E0E0E",
     "light": "#D4A27F",
@@ -12,8 +12,19 @@
     "default": "dark"
   },
   "navigation": {
-    "pages": [
-      "index"
+    "tabs": [
+      {
+        "tab": "Home",
+        "pages": [
+          "index"
+        ]
+      },
+      {
+        "tab": "Projects",
+        "pages": [
+          "projects/hika-flashcards"
+        ]
+      }
     ]
   },
   "contextual": {
