@@ -1,7 +1,7 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Demo",
+  "name": "Home",
   "colors": {
     "primary": "#0E0E0E",
     "light": "#D4A27F",
@@ -13,12 +13,6 @@
   },
   "navigation": {
     "tabs": [
-      {
-        "tab": "Home",
-        "pages": [
-          "index"
-        ]
-      },
       {
         "tab": "Projects",
         "pages": [
@@ -50,12 +44,6 @@
       "title": "Page Not Found",
       "description": "Please check the URL or return to the [homepage](/).",
       "redirect": false
-    }
-  },
-  "footer": {
-    "socials": {
-      "x": "https://x.com/AnthropicAI",
-      "linkedin": "https://www.linkedin.com/company/anthropicresearch"
     }
   }
 }
